@@ -1,0 +1,11 @@
+<div class="post-container">
+  <h1>Create New Post</h1>
+
+  <%= form_with model: @post, url: posts_new_path, method: :post, scope: :post do |f| %>
+    <div class="column">
+    <%= f.text_field :title, placeholder: 'Title of post', class: 'text-input' %>
+    <%= f.text_area :text,placeholder: 'Description of post' %>
+    <%= f.submit %>
+    </div>
+  <% end %>
+</div>
