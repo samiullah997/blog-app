@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create_like
-    @like = Like.new(author:current_user, post: Post.find(params[:id]))
+    @like = Like.new(author: current_user, post: Post.find(params[:id]))
     redirect_to post_path if @like.save
   end
 
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     redirect_to posts_new_path
     flash[:success] = 'Post have been saved successfully'
   end
-    
+
   def new
     @post = Post.new
   end
