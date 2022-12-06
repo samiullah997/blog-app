@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Post Show', type: :feature do
   before :each do
     @pic = 'https://media-exp1.licdn.com/dms/image/D4D03AQH2iqU1XeNMQw/profile-displayphoto-shrink_800_800/0/1664574084004?e=1675900800&v=beta&t=MrQaob8aUgKG7Q_0dw0DSugg0w-CfIGTmCulVDpX4Dg'

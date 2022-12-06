@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Post Index', type: :feature do
   before :each do
     @pic = 'https://whatsondisneyplus.com/wp-content/uploads/2022/09/andor-avatar.png'
