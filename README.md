@@ -129,6 +129,12 @@ To run the project, execute the following command:
 - Twitter: [@samiullahk997](https://twitter.com/samiullahk997)
 - LinkedIn: [Samiullah Khan](https://www.linkedin.com/in/samiullah-khan-2702b7171/)
 
+👤 **Momanyi Hassan**
+
+- GitHub: [@fullstop125](https://github.com/fullstop125)
+- LinkedIn: [momanyi-hassan](https://linkedin.com/in/momanyi-hassan-32a489180)
+- Twitter: [@moseshassany](https://twitter.com/moseshassany)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
