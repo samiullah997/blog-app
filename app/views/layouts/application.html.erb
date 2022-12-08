@@ -11,7 +11,22 @@
   </head>
 
   <body>
-    <div class="nav-bar"> <%= link_to "HOME", root_path, class: "mr-8" %> <div class="button-section"> <% if current_user %> <h4>Welcome: <%= current_user.name %></h4> <%= button_to "Sign out", destroy_user_session_path, method: :delete %> <% end %> <%= link_to "BACK", "javascript:history.back()" %> </div> </div> <div class="container"> <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p> </div> 
+    <div class="nav-bar">
+     <%= link_to "HOME", users_path, class: "mr-8" %> 
+     <div class="button-section"> 
+     <% if current_user %> 
+     <h4>Welcome: <%= current_user.name %></h4> 
+     <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+     <% else %>
+      <h4 class="quest_user"> Hi, Guest User</h4>
+     <% end %>
+      <%= link_to "BACK", "javascript:history.back()" %> 
+     </div> 
+    </div> 
+    <div class="container"> 
+     <p class="notice"><%= notice %></p> 
+     <p class="alert"><%= alert %></p> 
+    </div> 
     <%= yield %>
   </body>
 </html>
