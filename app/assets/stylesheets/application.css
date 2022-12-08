@@ -118,8 +118,26 @@ a {
 }
 
 .post-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin: 20px;
   border: 1px solid black;
+}
+
+.post-comment {
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.comment-area {
+  display: flex;
+  width: 60%;
+  height: auto;
 }
 
 .post-container {

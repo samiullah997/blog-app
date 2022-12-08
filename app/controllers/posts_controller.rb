@@ -22,15 +22,28 @@ class PostsController < ApplicationController
     redirect_to post_path if @like.save
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    if post.destroy
+      flash[:success] = 'Post was successfully deleted.'
+    else
+      flash[:error] = 'Error: Post could not be deleted'
+    end
+    redirect_to user_posts_url
+  end
+
   def create
     @post = Post.new(post_params)
     @post.author = current_user
     @post.likes_counter = 0
     @post.comments_counter = 0
-    return unless @post.save
+    if @post.save
+      flash[:success] = 'Post have been saved successfully'
+    else
+      flash[:error] = 'Login'
+    end
 
     redirect_to posts_new_path
-    flash[:success] = 'Post have been saved successfully'
   end
 
   def new
