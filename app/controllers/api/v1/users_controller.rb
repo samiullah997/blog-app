@@ -12,7 +12,6 @@ class Api::V1::UsersController < Api::V1::ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_author
     @author = User.find(params[:id])
   end
