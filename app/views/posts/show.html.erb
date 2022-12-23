@@ -1,9 +1,7 @@
 <% content_for :title, "#{@user.name} | #{@post.title}" %>
 <div class="container">
-<% if flash[:success] %>
-  <div class="notice"><%= flash[:success] %></div>
-  <%else%>
-  <div class="notice"><%= flash[:error] %></div>
+<% if flash[notice:] %>
+  <div class="notice"><%= flash[notice:] %></div>
 <% end %>
 </div>
 <%= render "user_post", post: @post %>
