@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   # get posts and comments for show action
   def new
     @post = Post.find(params[:post_id])
@@ -10,10 +9,10 @@ class CommentsController < ApplicationController
   def create
     post = Post.find(params[:id])
     comment = Comment.create(author: current_user, post:, **comment_params)
-    unless comment.save
-      redirect_to new_user_session_url
-    else
+    if comment.save
       redirect_to user_post_url(post.author, post), notice: 'Comment was successfully created.'
+    else
+      redirect_to new_user_session_url
     end
   end
 
@@ -22,7 +21,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     user = User.find(params[:user_id])
     post = user.posts.find(params[:post_id])
-    comment.destroy ? flash[notice:] = 'Comment was successfully deleted.' : flash[notice:] = 'Error: Comment could not be deleted'
+    flash[notice:] = comment.destroy ? 'Comment was successfully deleted.' : 'Error: Comment could not be deleted'
 
     redirect_to user_post_path(user, post)
   end

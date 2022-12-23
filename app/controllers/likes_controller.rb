@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   # This method is used to create a new like.
   def create
     post = Post.find(params[:post_id])

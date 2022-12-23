@@ -1,7 +1,7 @@
 class Api::V1::PostsController < Api::V1::ApplicationController
   before_action :set_author, only: %i[index show]
   before_action :set_post, only: [:show]
-  
+
   def index
     posts = @author.posts
     render json: posts, status: :ok

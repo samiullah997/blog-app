@@ -14,10 +14,10 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
 
   def create
     @comment = @author.comments.new(post: @post, **comment_params)
-    unless @comment.save  
-      render json: @comment.errors, status: :unprocessable_entity
-    else
+    if @comment.save
       render json: @comment, status: :created
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
