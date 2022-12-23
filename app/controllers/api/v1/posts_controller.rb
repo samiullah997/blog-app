@@ -1,6 +1,7 @@
 class Api::V1::PostsController < Api::V1::ApplicationController
-  before_action :set_post, only: [:show]
   before_action :set_author, only: %i[index show]
+  before_action :set_post, only: [:show]
+  
   def index
     posts = @author.posts
     render json: posts, status: :ok
@@ -12,7 +13,6 @@ class Api::V1::PostsController < Api::V1::ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_author
     @author = User.find(params[:user_id])
   end
