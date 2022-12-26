@@ -1,6 +1,6 @@
 class Api::V1::CommentsController < Api::V1::ApplicationController
-  before_action :set_post, only: %i[index show create]
   before_action :set_author, only: %i[index show create]
+  before_action :set_post, only: %i[index show create]
   before_action :set_comment, only: [:show]
 
   def index
@@ -13,7 +13,6 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
   end
 
   def create
-    # should use current_user
     @comment = @author.comments.new(post: @post, **comment_params)
     if @comment.save
       render json: @comment, status: :created
@@ -24,17 +23,16 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = set_post.comments.find(params[:id])
+  end
+
   def set_author
     @author = User.find(params[:user_id])
   end
 
   def set_post
     @post = set_author.posts.find(params[:post_id])
-  end
-
-  def set_comment
-    @comment = set_post.comments.find(params[:id])
   end
 
   def comment_params
